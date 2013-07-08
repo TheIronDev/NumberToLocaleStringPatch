@@ -1,0 +1,26 @@
+{
+  "name": "NumberToLocaleStringFix",
+  "version": "0.0.0",
+  "description": "A graceful update to Number.ToLocaleString. If the function is working correctly, then we leave the number prototype alone.",
+  "main": "numberToLocaleStringFix.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TheIronDeveloper/numericCrossBrowserToLocalString.git"
+  },
+  "keywords": [
+    "browser",
+    "compatability",
+    "javascript",
+    "localization"
+  ],
+  "author": "Tyler Stark",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "46cc01512698b1564a7894273448a3b4744ecc36",
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  }
+}

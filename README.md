@@ -9,8 +9,8 @@ My basic example:
 	number.toLocaleString(); // Because my system defaults to English, it will result with "1,000"
 	number.toLocaleString('en'); // Same thing here, I am just specifying English.
 
-
-	// Here is where things get interesting. Most modern browsers should return "1 000" (the correct french localization)
+	// Here is where things get interesting.
+	//Most modern browsers should return "1 000" (the correct french localization)
 	// Some browsers (IE8 and below, Safari) appear to get confused when localizing to other languages.	
 	number.toLocaleString('fr');
 

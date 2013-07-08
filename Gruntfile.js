@@ -4,14 +4,14 @@ module.exports = function(grunt){
 		pkg: grunt.file.readJSON('package.json'),
 		jasmine: {
 			testCases: {
-				src: 'numberToLocaleStringFix.js',
+				src: 'numberToLocaleStringPatch.js',
 				options: {
 					specs: 'tests/numberToLocaleStringSpec.js'
 				}
 			}
 		},
 		jshint: {
-			all: ['Gruntfile.js', 'numberToLocaleStringFix.js']
+			all: ['Gruntfile.js', 'numberToLocaleStringPatch.js']
 		}
 	});
 	grunt.loadNpmTasks('grunt-contrib-jasmine');

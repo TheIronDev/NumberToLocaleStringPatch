@@ -7,6 +7,7 @@ describe("Number", function(){
 
 	beforeEach(function() {
 		number = 1000;
+		// TODO: Add an override in the event that phantomJS does properly handle en, fr, and de.
 	});
 
 	it("should produce '1,000' for English Locales", function() {		

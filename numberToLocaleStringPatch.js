@@ -4,15 +4,32 @@
 	if(	tempNumber.toLocaleString('en') !== '1,000' ||
 		tempNumber.toLocaleString('fr') !== '1 000') {
 			window.Number.prototype.toLocaleString = function(){
-				var locale,
+				var currentNumber = this.toString(),
+					locale,
 					navigatorLanguage;
 
 				navigatorLanguage = (navigator && navigator.language) || 'en';									
 				locale = arguments[0] || navigatorLanguage;
+				
+				// TODO: Find more brands
+				// TODO: Intelligently arrange formatting.
+				/** 	For instance, DE and AT will likely format numbers the same.
+				 *		Rather than have non-Dry code, we can categorize formatting based on type.
+				**/
+				switch(locale) {
+					case 'en':
+						return currentNumber.split( /(?=(?:\d{3})+(?:\.|$))/g ).join( "," );
+						break;
+					case 'fr':
+						return currentNumber.split( /(?=(?:\d{3})+(?:\.|$))/g ).join( " " );
+						break;
+					case 'de':
+						return currentNumber.split( /(?=(?:\d{3})+(?:\.|$))/g ).join( "." );
+						break;
+				}
 
-				// TODO: Case/switch locales.
-
-				return '1 000 ['+locale+']';
+				// Failsafe scenerio
+				return currentNumber;
 			};
 	}
 })(); // Imediately Invoke

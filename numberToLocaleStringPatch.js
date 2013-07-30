@@ -14,12 +14,12 @@
 					splitFloats = '';
 
 				// Check if the number's precision is greater than the thousanths place.
-				if(splitNumber[1] && splitNumber[1].length > 3) {
-					// If so, build out the tail end of the formatted Number.
+				// If so, build out the tail end of the formatted Number.
+				if(splitNumber[1] && splitNumber[1].length > 3) {					
 					splitFloats = decimalDelimiter + number.toFixed(3).toString().split('.')[1];
 				}
 
-				return splitNumber[0].split( /(?=(?:\d{3})+(?:\.|$))/g ).join(delimiter) + splitFloats;
+				return splitNumber[0].split( /(?=(?:\d{3})+$)/g ).join(delimiter) + splitFloats;
 			};
 			window.Number.prototype.toLocaleString = function(){
 				var locale,

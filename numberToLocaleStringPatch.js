@@ -30,14 +30,45 @@
 				navigatorLanguage = (navigator && navigator.language) || 'en';									
 				locale = arguments[0] || navigatorLanguage;
 				
-				// TODO: Find more locales				
+				// TODO: Find more locales
+				// Using the list from https://developers.google.com/chrome/web-store/docs/i18n
 				switch(locale) {
 					case 'en':
+						return formatNumber(this, ',', '.');
+					case 'au':
+						return formatNumber(this, ',', '.');
+					case 'gb':
 						return formatNumber(this, ',', '.');
 					case 'fr':
 						return formatNumber(this, ' ', ',');
 					case 'de':
 						return formatNumber(this, '.', ',');
+					case 'at':
+						return formatNumber(this, ',', '.');
+					case 'fi':
+						return formatNumber(this, ' ', ',');
+					case 'nl':
+						return formatNumber(this, '.', ',');
+					case 'fi':
+						return formatNumber(this, ',', '.');
+					case 'es':
+						return formatNumber(this, '.', ',');
+					case 'da':
+						return formatNumber(this, '.', ',');
+					case 'el':
+						return formatNumber(this, '.', ',');
+					case 'et':
+						return formatNumber(this, ' ', ',');
+					case 'it':
+						return formatNumber(this, '.', ',');
+					case 'pl':
+						return formatNumber(this, ' ', ',');
+					case 'sv':
+						return formatNumber(this, ' ', ',');
+					case 'ru':
+						return formatNumber(this, ' ', ',');
+					case 'no':
+						return formatNumber(this, ',', '.');
 				}
 
 				// Failsafe scenerio

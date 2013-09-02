@@ -30,8 +30,7 @@
 				navigatorLanguage = (navigator && navigator.language) || 'en';									
 				locale = arguments[0] || navigatorLanguage;
 				
-				// TODO: Find more locales
-				// Using the list from https://developers.google.com/chrome/web-store/docs/i18n
+
 				switch(locale) {
 					case 'en':
 						return formatNumber(this, ',', '.');

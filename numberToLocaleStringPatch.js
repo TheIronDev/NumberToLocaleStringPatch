@@ -71,7 +71,7 @@
 				}
 
 				// Failsafe scenerio
-				return currentNumber;
+				return this.valueOf();
 			};
 	}
 })(); // Imediately Invoke

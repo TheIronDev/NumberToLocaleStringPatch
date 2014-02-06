@@ -27,7 +27,8 @@
 					numberPrecision;
 				
 
-				navigatorLanguage = (navigator && navigator.language) || 'en';									
+				navigatorLanguage = (navigator && navigator.language) || 'en';
+				navigatorLanguage = navigatorLanguage.replace(/\-[A-Z]+$/g, '');
 				locale = arguments[0] || navigatorLanguage;
 				
 

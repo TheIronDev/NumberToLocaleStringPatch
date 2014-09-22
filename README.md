@@ -15,4 +15,7 @@ My basic example:
 	// confused when localizing to other languages.	
 	number.toLocaleString('fr');
 
-So, in my little example, printing out a localized number for any locale besides 'en' provides inconsistent behavior. This small snipped aims at fixing this problem with the least intrusive way.	
+So, in my little example, printing out a localized number for any locale besides 'en' provides inconsistent behavior. This small snipped aims at fixing this problem with the least intrusive way.
+
+License:
+This shim is BSD licensed.  Hope this helps out! :turtle:	

@@ -1,6 +1,6 @@
 {
   "name": "NumberToLocaleStringFix",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A graceful update to Number.ToLocaleString. If the function is working correctly, then we leave the number prototype alone.",
   "main": "numberToLocaleStringFix.js",
   "scripts": {

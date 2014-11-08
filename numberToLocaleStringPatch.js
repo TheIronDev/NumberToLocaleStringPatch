@@ -4,9 +4,9 @@
  **/
 (function(){
 	var tempNumber = Math.PI*1000000;
-	//  German and French localized numbers do not equal eachother.
+	//  German and French localized numbers do not equal each other.
 	// If the following passes, it suggests that the locale parameter is being ignored.
-	if(tempNumber.toLocaleString('de') === tempNumber.toLocaleString('fr') ) {
+	if(tempNumber.toLocaleString('de') === tempNumber.toLocaleString('fr')) {
 			// Helper Function to assist with formatting numbers
 			var formatNumber = function(number, delimiter, decimalDelimiter){
 				var numberString = number.toString(), 
@@ -22,53 +22,88 @@
 				return splitNumber[0].split( /(?=(?:\d{3})+$)/g ).join(delimiter) + splitFloats;
 			};
 			window.Number.prototype.toLocaleString = function(){
-				var locale,
+				var localeMap = {
+						en: {
+							delimiter: ',',
+							decimal: '.'
+						},
+						au: {
+							delimiter: ',',
+							decimal: '.'
+						},
+						gb: {
+							delimiter: ',',
+							decimal: '.'
+						},
+						fr: {
+							delimiter: ' ',
+							decimal: ','
+						},
+						de: {
+							delimiter: '.',
+							decimal: ','
+						},
+						at: {
+							delimiter: ',',
+							decimal: '.'
+						},
+						fi: {
+							delimiter: ' ',
+							decimal: ','
+						},
+						nl: {
+							delimiter: '.',
+							decimal: ','
+						},
+						es: {
+							delimiter: '.',
+							decimal: ','
+						},
+						da: {
+							delimiter: '.',
+							decimal: ','
+						},
+						el: {
+							delimiter: '.',
+							decimal: ','
+						},
+						et: {
+							delimiter: ' ',
+							decimal: ','
+						},
+						it: {
+							delimiter: '.',
+							decimal: ','
+						},
+						pl: {
+							delimiter: ' ',
+							decimal: ','
+						},
+						sv: {
+							delimiter: ' ',
+							decimal: ','
+						},
+						ru: {
+							delimiter: ' ',
+							decimal: ','
+						},
+						no: {
+							delimiter: ',',
+							decimal: '.'
+						}
+					},
+					locale,
 					navigatorLanguage,
-					numberPrecision;
-				
+					localeCharacters;
 
 				navigatorLanguage = (navigator && navigator.language) || 'en';
 				navigatorLanguage = navigatorLanguage.replace(/\-\w+$/g, '');
 				locale = arguments[0] || navigatorLanguage;
-				
 
-				switch(locale) {
-					case 'en':
-						return formatNumber(this, ',', '.');
-					case 'au':
-						return formatNumber(this, ',', '.');
-					case 'gb':
-						return formatNumber(this, ',', '.');
-					case 'fr':
-						return formatNumber(this, ' ', ',');
-					case 'de':
-						return formatNumber(this, '.', ',');
-					case 'at':
-						return formatNumber(this, ',', '.');
-					case 'fi':
-						return formatNumber(this, ' ', ',');
-					case 'nl':
-						return formatNumber(this, '.', ',');
-					case 'fi':
-						return formatNumber(this, ',', '.');
-					case 'es':
-						return formatNumber(this, '.', ',');
-					case 'da':
-						return formatNumber(this, '.', ',');
-					case 'el':
-						return formatNumber(this, '.', ',');
-					case 'et':
-						return formatNumber(this, ' ', ',');
-					case 'it':
-						return formatNumber(this, '.', ',');
-					case 'pl':
-						return formatNumber(this, ' ', ',');
-					case 'sv':
-						return formatNumber(this, ' ', ',');
-					case 'ru':
-						return formatNumber(this, ' ', ',');
-					case 'no':
-						return formatNumber(this, ',', '.');
+				localeCharacters = localeMap[locale];
+
+				if (localeCharacters) {
+					return formatNumber(this, localeCharacters.delimiter, localeCharacters.decimal);
 				}
 
 				// Failsafe scenerio
